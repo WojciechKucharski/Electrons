@@ -1,24 +1,24 @@
 function kulki = main(n,s)
-N=zeros(n,2); %macierz z umiejscowieniem punktów
-for i=1:n %pêtla przypisuj¹ca losowe miejsca na uk³adzie
-    th=4*pi*rand-2*pi;
+N=zeros(n,2); %macierz z umiejscowieniem punktÃ³w
+for i=1:n %pÄ™tla przypisujÄ…ca losowe miejsca na ukÅ‚adzie
+    th=2*pi*rand;
     r=rand;
     N(i,1:2)=[r*cos(th),r*sin(th)];
 end
-ang=0:0.01:2*pi; %przygotowanie obramówki
+ang=0:0.01:2*pi; %przygotowanie obramÃ³wki
 xp=cos(ang);
 yp=sin(ang);
 
-while 1 %pêtla wyœwietlaj¹ca
-scatter(N(1:n,1),N(1:n,2),'filled'); %wyœwietlenie punktów
+while 1 %pÄ™tla wyÅ›wietlajÄ…ca
+scatter(N(1:n,1),N(1:n,2),'filled'); %wyÅ›wietlenie punktÃ³w
 axis equal;
 hold on;
-plot(xp,yp); %wyœwietleie bariery
+plot(xp,yp); %wyÅ›wietleie bariery
 hold off;
 N1=move(n,N,s); %przesuwanie kulek
-N1=bariera(n,N1); %sprawdzanie czy punkty nie przykroczy³y bariery
-if(max(max(abs(N1-N))))<0.0001 %sprawdzenie czy wci¹¿ siê ruszaj¹
-    break; %przerwanie pêtli w przypadku braku ruchu
+N1=bariera(n,N1); %sprawdzanie czy punkty nie przykroczyÅ‚y bariery
+if(max(max(abs(N1-N))))<0.0001 %sprawdzenie czy wciÄ…Å¼ siÄ™ ruszajÄ…
+    break; %przerwanie pÄ™tli w przypadku braku ruchu
 end
 N=N1;
 pause(0.1);
